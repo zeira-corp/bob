@@ -1,3 +1,6 @@
+// Description:
+//   <description of the scripts functionality>
+// ...
 'use strict';
 
 module.exports =  (robot) =>  {
@@ -22,6 +25,10 @@ module.exports =  (robot) =>  {
 
   robot.hear(/coucou bob (.*)/i, (res) => {
     res.send(`🤖 ${res.match[1]} 😜`);
+  });
+
+  robot.hear(/tired|too hard|upset|bored/i, (res) => {
+    res.send(`😡 ${res.message.user.name}`);
   });
 
   // display the response of BoB
