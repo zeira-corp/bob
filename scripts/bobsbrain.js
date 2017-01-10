@@ -26,7 +26,7 @@ module.exports =  (robot) =>  {
     res.send(`help yourself with ${res.match[1]} 😜`);
   });
 
-  robot.hear(/coucou bob (.*)/i, (res) => {
+  robot.hear(/coucou bob/i, (res) => {
     res.send(`coucou ${res.message.user.name}`);
     fetch(`http://bob.local:8085/lcd`, {
       method: 'POST',
@@ -105,7 +105,7 @@ module.exports =  (robot) =>  {
     res.send(`🚧  ${res.message.user.name} 🤖  éteind la led blanche`);
   });
 
-  robot.hear(/(?=.*bob)(?=.*boom)/i, (res) => {
+  robot.hear(/(?=.*bob)(?=.*bleu)(?=.*blanc)(?=.*rouge)/i, (res) => {
     fetch(`http://bob.local:8085/led/white/switch/on`, {
       method: 'GET',
       headers: {
