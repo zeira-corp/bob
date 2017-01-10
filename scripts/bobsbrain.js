@@ -27,8 +27,37 @@ module.exports =  (robot) =>  {
     res.send(`🤖 ${res.match[1]} 😜`);
   });
 
-  robot.hear(/tired|too hard|upset|bored/i, (res) => {
-    res.send(`😡 ${res.message.user.name}`);
+  robot.hear(/(?=.*coucou bob)(?=.*allume)(?=.*led)(?=.*rouge)/i, (res) => {
+    fetch(`http://bob.local:8085/led/red/blink`, {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    res.send(`🚧 ${res.message.user.name} 🤖 allume la led rouge`);
+  });
+
+  robot.hear(/(?=.*coucou bob)(?=.*allume)(?=.*led)(?=.*bleu)/i, (res) => {
+    fetch(`http://bob.local:8085/led/blue/blink`, {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    res.send(`🚧 ${res.message.user.name} 🤖 allume la led bleue`);
+  });
+
+  robot.hear(/(?=.*coucou bob)(?=.*allume)(?=.*led)(?=.*blanche)/i, (res) => {
+    fetch(`http://bob.local:8085/led/white/blink`, {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    res.send(`🚧 ${res.message.user.name} 🤖 allume la led blanche`);
   });
 
   // display the response of BoB
