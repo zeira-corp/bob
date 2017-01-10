@@ -9,7 +9,7 @@ const fetch = require('node-fetch');
 module.exports =  (robot) =>  {
 
   robot.messageRoom('general', 'Hello 🌍 I am BoB')
-  
+
   robot.hear(/bob yo/, (res) => {
     res.send(`yo ${res.message.user.name}`);
   });
@@ -105,7 +105,7 @@ module.exports =  (robot) =>  {
     res.send(`🚧  ${res.message.user.name} 🤖  éteind la led blanche`);
   });
 
-  robot.hear(/(?=.*bob)(?=.*allumer)(?=.*tout)/i, (res) => {
+  robot.hear(/(?=.*bob)(?=.*allumer)(?=.*allume)(?=.*allumé)(?=.*tout)/i, (res) => {
     fetch(`http://bob.local:8085/led/white/switch/on`, {
       method: 'GET',
       headers: {
