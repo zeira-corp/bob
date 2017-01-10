@@ -105,7 +105,7 @@ module.exports =  (robot) =>  {
     res.send(`🚧  ${res.message.user.name} 🤖  éteind la led blanche`);
   });
 
-  robot.hear(/(?=.*bob)(?=.*allumer)(?=.*allume)(?=.*allumé)(?=.*tout)/i, (res) => {
+  robot.hear(/(?=.*bob)(?=.*boom)/i, (res) => {
     fetch(`http://bob.local:8085/led/white/switch/on`, {
       method: 'GET',
       headers: {
@@ -128,7 +128,7 @@ module.exports =  (robot) =>  {
     res.send(`🚧  ${res.message.user.name} 🤖  allume tout`);
   });
 
-  robot.hear(/(?=.*bob)(?=.*éteindre)(?=.*tout)/i, (res) => {
+  robot.hear(/(?=.*bob)(?=.*plouf)/i, (res) => {
     fetch(`http://bob.local:8085/led/white/switch/off`, {
       method: 'GET',
       headers: {
