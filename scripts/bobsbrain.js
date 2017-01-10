@@ -3,6 +3,9 @@
 // ...
 'use strict';
 
+const fetch = require('node-fetch');
+
+
 module.exports =  (robot) =>  {
 
   robot.messageRoom('general', 'Hello 🌍 I am BoB')
@@ -27,7 +30,7 @@ module.exports =  (robot) =>  {
     res.send(`🤖 ${res.match[1]} 😜`);
   });
 
-  robot.hear(/(?=.*coucou bob)(?=.*allume)(?=.*led)(?=.*rouge)/i, (res) => {
+  robot.hear(/(?=.*bob)(?=.*allumer)(?=.*led)(?=.*rouge)/i, (res) => {
     fetch(`http://bob.local:8085/led/red/blink`, {
       method: 'GET',
       headers: {
@@ -38,7 +41,7 @@ module.exports =  (robot) =>  {
     res.send(`🚧 ${res.message.user.name} 🤖 allume la led rouge`);
   });
 
-  robot.hear(/(?=.*coucou bob)(?=.*allume)(?=.*led)(?=.*bleu)/i, (res) => {
+  robot.hear(/(?=.*bob)(?=.*allumer)(?=.*led)(?=.*bleu)/i, (res) => {
     fetch(`http://bob.local:8085/led/blue/blink`, {
       method: 'GET',
       headers: {
@@ -49,7 +52,7 @@ module.exports =  (robot) =>  {
     res.send(`🚧 ${res.message.user.name} 🤖 allume la led bleue`);
   });
 
-  robot.hear(/(?=.*coucou bob)(?=.*allume)(?=.*led)(?=.*blanche)/i, (res) => {
+  robot.hear(/(?=.*bob)(?=.*allumer)(?=.*led)(?=.*blanche)/i, (res) => {
     fetch(`http://bob.local:8085/led/white/blink`, {
       method: 'GET',
       headers: {
